@@ -1,0 +1,6 @@
+target/
+basics/
+wyklady/
+*.pdf
+*.exe
+*.pdb
