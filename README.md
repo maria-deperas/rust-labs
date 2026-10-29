@@ -7,6 +7,7 @@ My progress in learning Rust: lab assignments from the *Rust Programming* course
 | # | Topic | What I learned |
 |---|-------|----------------|
 | [Lab 1](lab1) | Introduction & language basics | `loop` with values, `match`, arrays, functions, nested & labeled loops, tuples, file I/O, external crates |
+| [Lab 2](lab2) | Ownership & structs | structs & tuple structs, associated functions, `derive`, move vs borrow (`self` / `&self` / `&mut self`), `Clone` vs `Copy`, slices, `String` vs `&str`, deref coercion |
 
 ---
 
@@ -17,6 +18,16 @@ A console program that reads numbers in a loop, adds a random offset (`rand` cra
 **Own feature:** finds `a, b ∈ [1, 10]` such that `a * b = x`, using a labeled `break 'outer` and a function returning a `(bool, u32, u32)` tuple.
 
 **Concepts:** `loop` with `break value`, `match`, arrays, tuples, labeled breaks, file I/O, `cargo clippy`.
+
+---
+
+### Lab 2: Ownership & structs
+
+A `NumberWithUnit` type (a value with a physical unit, e.g. `10 m`, `2 s`) with constructors and arithmetic: `add` / `mul` / `div` that consume both operands and return a new value, and `add_in_place` / `mul_in_place` / `div_in_place` that modify the value through `&mut self`. Units are combined as text (`m/s`, `m*s`), and adding different units panics. Plus `mul_vals` (takes a slice) and `mul_vals_vec` (takes a `Vec` by value), and a `DoubleString` tuple struct built from `&str` or `&String`.
+
+**Key takeaways:** why a struct with a `String` field can't be `Copy`; why a function taking `Vec` can be called only once on the same vector without `.clone()`; why `&String` coerces to `&str` but not the other way round.
+
+**Concepts:** ownership & move, borrowing, `Clone` vs `Copy`, slices, `String` vs `&str`, `format!`, `panic!`, `cargo clippy`.
 
 ---
 
